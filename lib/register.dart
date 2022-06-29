@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_register_screen/Picker_country.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -10,8 +11,10 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
-      body: Stack(
+      body: ListView(
         children: [
           Container(
             height: MediaQuery.of(context).size.height * 1 / 6,
@@ -20,23 +23,14 @@ class _RegisterState extends State<Register> {
             ),
           ),
           SizedBox(
-            height: 100,
+            height: height * .001,
           ),
-          Container(
-            height: 100,
-            width: 100,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text(
-                  "Welcome to fashion Daily",
-                  style: TextStyle(fontSize: 10),
-                )
-              ],
-            ),
+          Text(
+            "Welcome to fashion Daily,",
+            style: TextStyle(fontSize: 8),
           ),
           SizedBox(
-            height: 100,
+            height: height * .01,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -45,16 +39,10 @@ class _RegisterState extends State<Register> {
                 "Register",
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
-              SizedBox(
-                height: 300,
-              ),
               Text(
                 "Help?",
                 style: TextStyle(fontSize: 8, color: Colors.blue),
               ),
-              SizedBox(
-                height: 50,
-              )
             ],
           ),
           SizedBox(
@@ -70,10 +58,18 @@ class _RegisterState extends State<Register> {
               SizedBox(
                 height: 50,
               ),
-              TextFormField(
-                decoration: InputDecoration(
-                  labelText: 'Select Phone Number',
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  PickerCountry(),
+                  Expanded(
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        labelText: 'Select Phone Number',
+                      ),
+                    ),
+                  ),
+                ],
               ),
               SizedBox(
                 height: 50,

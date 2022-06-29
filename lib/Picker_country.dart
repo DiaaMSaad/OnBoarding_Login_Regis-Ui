@@ -27,7 +27,7 @@ class _PickerCountryState extends State<PickerCountry> {
     return CountryPickerDropdown(
       initialValue: 'AR',
       itemBuilder: _buildDropdownItem,
-      itemFilter: (c) => ['AR', 'DE', 'GB', 'CN'].contains(c.isoCode),
+      itemFilter: (c) => ['AR', 'DE', 'GB', 'CN','EG'].contains(c.isoCode),
       priorityList: [
         CountryPickerUtils.getCountryByIsoCode('GB'),
         CountryPickerUtils.getCountryByIsoCode('CN'),
